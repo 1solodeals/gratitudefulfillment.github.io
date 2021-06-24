@@ -28,7 +28,7 @@
    	 <p>Follow This Easy Step-By-Step Plan to Achieve Greatness in All Aspects of Your Life by Harnessing the Power of Gratitude!</p>
 </div>
    <div class="mostPop">
-   	<p><span>From:</span> [YOUR NAME]</p>
+   	<p><span>From:</span> [GRATITUDE FULFILLMENT]</p>
    	<p>In today&rsquo;s highly consumerist society, where materialism has overtaken our lives and our family, and where quarterly growth figures have become a measure of a nation&rsquo;s standing, it can be difficult to see past the idea that material possessions will make us happy. </p>
    	<p>While the material things that you collect will provide you with momentary happiness, this false sense of happiness can quickly fade, leaving you feeling empty and unfulfilled.</p>
     <p>Living with gratitude is one of the major keys to living a happy and prosperous life. </p>
@@ -237,9 +237,43 @@ Mindmap</h1>
    	 	<p class="bold" style="text-decoration: line-through; font-size: 18px">Regular Price: $27.00</p>
    	 	<p class="bold" style="color: #C30003; font-size: 18px">Today Only: $7.00!</p>
    	 	</div>
-   	 	<div class="button">
-  
-   	 	 <img src="images/add-to-cart-gold.png">
+	
+   	        <div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=Aedjb6E2wwxAnCPz2cre6MGePrwMoriDFWxnOMWzR6C5KazBxU6XKaJb80S90mFhkDmjjSQOnvQWA4mR&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'blue',
+          layout: 'vertical',
+          label: 'buynow',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"description":"Gratitude Fulfillment Ebook","amount":{"currency_code":"USD","value":7}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
    	 		
    	
 	</div>
@@ -247,7 +281,7 @@ Mindmap</h1>
    </div>
    <div class="mostPop">
    	 	<p>To Your Success,<br>
-<span class="bold">[YOUR NAME]</span></p>
+<span class="bold">[]</span></p>
    	 	<p><br>
  	    <strong>P.S.</strong> - A recent study determined that half of your happiness levels are based in genetics, 10 percent is based on your circumstances, and the other 40 percent is based on our behavior. This means that we have a significant say in how happy we are in our lives. </p>
 <p><br>
